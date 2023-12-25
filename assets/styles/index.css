@@ -5,4 +5,35 @@ html, body {
   padding: 0;
 }
 
+@font-face {
+  font-family: wljh;
+  src: url(/fonts/wljh.ttf);
+}
 
+:root {
+  --color: var(--m-color-text);
+}
+
+
+html {
+  color: var(--color);
+  font-family: wljh;
+}
+
+html[dark] {
+  --color: white;
+}
+
+
+
+.slogan {
+  writing-mode: vertical-rl;
+  font-size: 1.8rem;
+  line-height: 3.6rem;
+
+  text-shadow: 0 0 2px var(--color);
+}
+
+.slogan-second{
+  margin-top: 16rem;
+}

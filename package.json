@@ -10,9 +10,10 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@higuaifan/rollup-plugin-fontmin": "^0.0.5",
     "@nuxt/devtools": "latest",
-    "shuimo-ui": "0.3.0-alpha.8",
     "nuxt": "^3.8.2",
+    "shuimo-ui": "0.3.0-alpha.8",
     "vue": "^3.3.12",
     "vue-router": "^4.2.5"
   }
