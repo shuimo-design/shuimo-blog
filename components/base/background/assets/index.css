@@ -1,0 +1,117 @@
+.w-100{
+  width: 100vw;
+}
+
+.h-100{
+  height: 100vh;
+}
+
+.absolute {
+  position: absolute;
+
+  &.t0r0{
+    top: 0;
+    right: 0;
+  }
+}
+
+.flex {
+  display: flex;
+
+  &.between-end {
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  &.between-start {
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+.bg-100 {
+  background-size: 100% 100%;
+}
+
+.m-bg {
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(10, 87, 64, 0.2);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.rice-paper-hover {
+  background-image: url(/components/base/background/assets/img/rice-paper.webp);
+  opacity: 0.8;
+  background-repeat: repeat;
+}
+
+
+.m-bg-inside {
+  z-index: 0;
+}
+
+.mountains {
+  bottom: 0;
+  margin-bottom: calc(100vw / 4096 * -432);
+}
+
+
+.mountain-left {
+  width: calc(100vw / 4096 * 1774);
+  height: calc(100vw / 4096 * 692);
+  margin-left: calc(100vw / 4096 * -55);
+}
+
+.mountain-right {
+  width: calc(100vw / 4096 * 2273);
+  height: calc(100vw / 4096 * 900);
+  margin-right: calc(100vw / 4096 * -55);
+}
+
+.m-mountain-left {
+  background-image: url(/components/base/background/assets/img/green/mountain-left.webp);
+
+}
+
+.m-mountain-right {
+  background-image: url(/components/base/background/assets/img/green/mountain-right.webp);
+}
+
+.m-mountain-left-reflection {
+  background-image: url(/components/base/background/assets/img/green/mountain-reflection-left.webp);
+}
+
+.m-mountain-right-reflection {
+  background-image: url(/components/base/background/assets/img/green/mountain-reflection-right.webp);
+}
+
+html[dark] {
+  .m-bg {
+    background-color: black;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .rice-paper-hover{
+    background-image: url(/components/base/background/assets/img/rice-paper-warm.webp);
+    opacity: 0.5;
+  }
+
+  .m-mountain-left {
+    background-image: url(/components/base/background/assets/img/dark/mountain-left.webp);
+  }
+
+  .m-mountain-right {
+    background-image: url(/components/base/background/assets/img/dark/mountain-right.webp);
+  }
+
+  .m-mountain-left-reflection {
+    background-image: url(/components/base/background/assets/img/dark/mountain-reflection-left.webp);
+  }
+
+  .m-mountain-right-reflection {
+    background-image: url(/components/base/background/assets/img/dark/mountain-reflection-right.webp);
+  }
+
+
+}
