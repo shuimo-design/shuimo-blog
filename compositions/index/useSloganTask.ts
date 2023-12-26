@@ -15,13 +15,13 @@
  * run cleanSloganTask to clear taskQueue.
  *
  */
-const PUSH_SPEED = 100;
-const REVERT_SPEED = 33;
+import useAnimationFrame from '~/compositions/index/useAnimationFrame';
+
+const PUSH_SPEED = 3;
+const REVERT_SPEED = 1;
 
 type Task = [string, string];
 export default function useSloganTask() {
-  let isRunning = false;
-  let isReverting = false;
 
   let lastTask: Task | null = null;
   let currentTask: Task = ['', ''];
@@ -30,11 +30,24 @@ export default function useSloganTask() {
   const sloganSecondRef = ref('');
 
 
+  const {
+    taskInfo,
+    controls,
+    speedRef,
+    stop
+  } = useAnimationFrame({
+    pushSpeed: PUSH_SPEED,
+    revertSpeed: REVERT_SPEED
+  });
+
+
   /**
    * default font size: 1.8rem
    * @see .slogan in index.css
    * */
-  const secondSloganMarginTopRef = ref('0rem');
+  const BASE_MARGIN_TOP = '0rem';
+  const secondSloganMarginTopRef = ref(BASE_MARGIN_TOP);
+  let waitChangeMarginTop = BASE_MARGIN_TOP;
   const setSecondSloganMarginTop = (sloganLength: number, secondLength: number) => {
     const sloganFontSize = 1.8;
     const half = sloganLength / 2;
@@ -42,7 +55,7 @@ export default function useSloganTask() {
     if (half >= secondLength) {
       radio = secondLength / 2 + half;
     }
-    secondSloganMarginTopRef.value = `${radio * sloganFontSize}rem`;
+    waitChangeMarginTop = `${radio * sloganFontSize}rem`;
   };
 
   const getSloganTask = (slogan: string) => {
@@ -59,58 +72,47 @@ export default function useSloganTask() {
   };
 
   const init = (slogan: string) => {
-    revertTask();
+    callRevert();
     lastTask = getSloganTask(slogan);
-    if (!isReverting) {
-      startTask();
-    }
+    startTask();
   };
 
   const startTask = () => {
     if (lastTask === null) return;
-    if (isRunning) return;
-    if (isReverting) return;
 
     currentTask = lastTask;
     lastTask = null;
-    isRunning = true;
     setSecondSloganMarginTop(currentTask[0].length, currentTask[1].length);
-    runTask();
+    callRun();
   };
 
-  let taskTimer: number | undefined = undefined;
   const clearTimer = () => {
-    clearTimeout(taskTimer);
+    stop();
   };
-
   const runTask = () => {
     if (lastTask !== null) {
       clearTimer();
-      isRunning = false;
-      isReverting = true;
-      revertTask();
+      taskInfo.value.revert = revertTask;
+      controls.resume();
       return;
     }
     if (currentTask[0].length > 0) {
       sloganRef.value += currentTask[0][0];
       currentTask[0] = currentTask[0].slice(1);
     } else if (currentTask[1].length > 0) {
+      if (waitChangeMarginTop !== secondSloganMarginTopRef.value) {
+        secondSloganMarginTopRef.value = waitChangeMarginTop;
+      }
       sloganSecondRef.value += currentTask[1][0];
       currentTask[1] = currentTask[1].slice(1);
     } else {
       clearTimer();
-      isRunning = false;
       return;
     }
-    taskTimer = setTimeout(runTask, PUSH_SPEED) as any as number;
+    return true;
   };
 
-
   const revertTask = () => {
-    if (isRunning) {
-      return;
-    }
-    isReverting = true;
     if (sloganSecondRef.value.length > 0) {
       sloganSecondRef.value = sloganSecondRef.value.slice(0, -1);
     } else if (sloganRef.value.length > 0) {
@@ -118,19 +120,27 @@ export default function useSloganTask() {
     }
 
     if (sloganRef.value.length === 0 && sloganSecondRef.value.length === 0) {
-      isReverting = false;
       startTask();
       return;
     }
+    return true;
+  };
 
-    taskTimer = setTimeout(revertTask, REVERT_SPEED) as any as number;
+
+  const callRun = () => {
+    taskInfo.value.push = runTask;
+    controls.resume();
+  };
+  const callRevert = () => {
+    taskInfo.value.revert = revertTask;
+    controls.resume();
   };
 
   return {
     sloganRef,
     sloganSecondRef,
+    secondSloganMarginTopRef,
     init,
-    clearTimer,
-    secondSloganMarginTopRef
+    clearTimer
   };
 }

@@ -16,9 +16,9 @@ export default defineComponent((props) => {
   const {
     sloganRef,
     sloganSecondRef,
+    secondSloganMarginTopRef,
     init,
-    clearTimer,
-    secondSloganMarginTopRef
+    clearTimer
   } = useSloganTask();
 
   watch(() => props.slogan, (newVal) => {
