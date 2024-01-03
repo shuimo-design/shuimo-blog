@@ -1,15 +1,15 @@
-.w-100{
+.w-100 {
   width: 100vw;
 }
 
-.h-100{
+.h-100 {
   height: 100vh;
 }
 
 .absolute {
   position: absolute;
 
-  &.t0r0{
+  &.t0r0 {
     top: 0;
     right: 0;
   }
@@ -46,45 +46,92 @@
   background-repeat: repeat;
 }
 
-
 .m-bg-inside {
   z-index: 0;
 }
 
 .mountains {
+  --img-root: 100vw / 4096;
+  --ir: var(--img-root);
   bottom: 0;
-  margin-bottom: calc(100vw / 4096 * -432);
+  margin-bottom: calc(var(--ir) * 432);
 }
 
-
-.mountain-left {
-  width: calc(100vw / 4096 * 1774);
-  height: calc(100vw / 4096 * 692);
-  margin-left: calc(100vw / 4096 * -55);
+.m-m-reflect {
+  -webkit-box-reflect: below 10px -webkit-linear-gradient(#0000000f, #0000001c 50%, rgb(0 0 0 / 41%));
 }
 
-.mountain-right {
-  width: calc(100vw / 4096 * 2273);
-  height: calc(100vw / 4096 * 900);
-  margin-right: calc(100vw / 4096 * -55);
+.m-m-left {
+  position: relative;
+  margin-left: calc(var(--ir) * -55);
+  height: calc(var(--ir) * 601);
 }
 
-.m-mountain-left {
-  background-image: url(/components/base/background/assets/img/green/mountain-left.webp);
-
+.m-m-right {
+  position: relative;
+  margin-right: calc(var(--ir) * -55);
+  height: calc(var(--ir) * 773);
 }
 
-.m-mountain-right {
-  background-image: url(/components/base/background/assets/img/green/mountain-right.webp);
+.m-l-base {
+  width: calc(var(--ir) * 1772);
+  height: calc(var(--ir) * 601);
+  background-image: url(/components/base/background/assets/img/green/l-base.webp);
 }
 
-.m-mountain-left-reflection {
-  background-image: url(/components/base/background/assets/img/green/mountain-reflection-left.webp);
+.m-l-mid {
+  width: calc(var(--ir) * 1162);
+  height: calc(var(--ir) * 358);
+  bottom: calc(var(--ir) * 4);
+  background-image: url(/components/base/background/assets/img/green/l-mid.webp);
 }
 
-.m-mountain-right-reflection {
-  background-image: url(/components/base/background/assets/img/green/mountain-reflection-right.webp);
+.m-l-front {
+  width: calc(var(--ir) * 510);
+  height: calc(var(--ir) * 282);
+  bottom: calc(var(--ir) * 5);
+  background-image: url(/components/base/background/assets/img/green/l-front.webp);
 }
+
+.m-l-front-2 {
+  width: calc(var(--ir) * 833);
+  height: calc(var(--ir) * 304);
+  bottom: calc(var(--ir) * 4);
+  left: calc(var(--ir) * 490);
+  background-image: url(/components/base/background/assets/img/green/l-front-2.webp);
+}
+
+.m-r-base {
+  width: calc(var(--ir) * 2273);
+  height: calc(var(--ir) * 773);
+  right: 0;
+  background-image: url(/components/base/background/assets/img/green/r-base.webp);
+}
+
+.m-r-mid {
+  width: calc(var(--ir) * 1250);
+  height: calc(var(--ir) * 708);
+  bottom: calc(var(--ir) * 4);
+  right: 0;
+  background-image: url(/components/base/background/assets/img/green/r-mid.webp);
+}
+
+.m-r-front {
+  width: calc(var(--ir) * 1001);
+  height: calc(var(--ir) * 381);
+  bottom: calc(var(--ir) * 5);
+  right: calc(var(--ir) * 680);
+  background-image: url(/components/base/background/assets/img/green/r-front.webp);
+}
+
+.m-r-front-2 {
+  width: calc(var(--ir) * 629);
+  height: calc(var(--ir) * 359);
+  bottom: calc(var(--ir) * 4);
+  right: 0;
+  background-image: url(/components/base/background/assets/img/green/r-front-2.webp);
+}
+
 
 html[dark] {
   .m-bg {
@@ -92,25 +139,42 @@ html[dark] {
     transition: background-color 0.3s ease-in-out;
   }
 
-  .rice-paper-hover{
+  .rice-paper-hover {
     background-image: url(/components/base/background/assets/img/rice-paper-warm.webp);
     opacity: 0.5;
   }
 
-  .m-mountain-left {
-    background-image: url(/components/base/background/assets/img/dark/mountain-left.webp);
+
+  .m-l-base {
+    background-image: url(/components/base/background/assets/img/dark/l-base.webp);
   }
 
-  .m-mountain-right {
-    background-image: url(/components/base/background/assets/img/dark/mountain-right.webp);
+  .m-l-mid {
+    background-image: url(/components/base/background/assets/img/dark/l-mid.webp);
   }
 
-  .m-mountain-left-reflection {
-    background-image: url(/components/base/background/assets/img/dark/mountain-reflection-left.webp);
+  .m-l-front {
+    background-image: url(/components/base/background/assets/img/dark/l-front.webp);
   }
 
-  .m-mountain-right-reflection {
-    background-image: url(/components/base/background/assets/img/dark/mountain-reflection-right.webp);
+  .m-l-front-2 {
+    background-image: url(/components/base/background/assets/img/dark/l-front-2.webp);
+  }
+
+  .m-r-base {
+    background-image: url(/components/base/background/assets/img/dark/r-base.webp);
+  }
+
+  .m-r-mid {
+    background-image: url(/components/base/background/assets/img/dark/r-mid.webp);
+  }
+
+  .m-r-front {
+    background-image: url(/components/base/background/assets/img/dark/r-front.webp);
+  }
+
+  .m-r-front-2 {
+    background-image: url(/components/base/background/assets/img/dark/r-front-2.webp);
   }
 
 

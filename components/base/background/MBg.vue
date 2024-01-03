@@ -11,12 +11,25 @@
  * 另外试一下手动收集css..似乎有些难受
  */
 import { onMounted } from 'vue';
+import useImgMove from '~/components/base/background/compositions/useImgMove';
 
 
-const mLeft = ref<HTMLElement>();
-const mRight = ref<HTMLElement>();
-const mLeftReflect = ref<HTMLElement>();
-const mRightReflect = ref<HTMLElement>();
+const {
+  baseRef: mLBaseRef,
+  midRef: mLMidRef,
+  frontRef: mLFrontRef,
+  front2Ref: mLFront2Ref,
+  onMove: leftOnMove
+} = useImgMove('left');
+
+const {
+  baseRef: mRBaseRef,
+  midRef: mRMidRef,
+  frontRef: mRFrontRef,
+  front2Ref: mRFront2Ref,
+  onMove: rightOnMove
+} = useImgMove('right');
+
 const moveMountain = (e: MouseEvent) => {
   const x = e.clientX;
   const y = e.clientY;
@@ -25,20 +38,9 @@ const moveMountain = (e: MouseEvent) => {
   const xPercent = x / w;
   const yPercent = y / h;
   const xMove = xPercent * 10 - 5;
-  const yMove = yPercent * 10 - 5;
-  const leftRatio = xMove < 0 ? 1 : 2;
-  const rightRatio = xMove > 0 ? 1 : 2;
-
-  if (!mLeft.value || !mRight.value || !mLeftReflect.value || !mRightReflect.value) {
-    return;
-  }
-
-  let ratio = 1;
-  mLeft.value.style.cssText = `transform: translate(${xMove * leftRatio * ratio}px, ${yMove * ratio}px)`;
-  mRight.value.style.cssText = `transform: translate(${xMove * rightRatio * ratio}px, ${yMove * ratio}px)`;
-  ratio = 2;
-  mLeftReflect.value.style.cssText = `transform: translate(${xMove * leftRatio * ratio}px, ${yMove * ratio}px)`;
-  mRightReflect.value.style.cssText = `transform: translate(${xMove * rightRatio * ratio}px, ${yMove * ratio}px)`;
+  const yMove = (yPercent * 10 - 5) * 0.5; // UI said y-axis must move very slow.
+  leftOnMove(xMove, yMove);
+  rightOnMove(xMove, yMove);
 };
 
 onMounted(() => {
@@ -56,12 +58,18 @@ onBeforeUnmount(() => {
   <div class="m-bg w-100 h-100">
     <div class="mountains w-100 absolute">
       <div class="flex between-end">
-        <div class="m-mountain-left mountain-left bg-100" ref="mLeft"/>
-        <div class="m-mountain-right mountain-right bg-100" ref="mRight"/>
-      </div>
-      <div class="flex between-start">
-        <div class="m-mountain-left-reflection mountain-left bg-100" ref="mLeftReflect"/>
-        <div class="m-mountain-right-reflection mountain-right bg-100" ref="mRightReflect"/>
+        <div class="m-m-left">
+          <div class="m-l-base bg-100 absolute m-m-reflect" ref="mLBaseRef"/>
+          <div class="m-l-mid bg-100 absolute m-m-reflect" ref="mLMidRef"/>
+          <div class="m-l-front bg-100 absolute m-m-reflect" ref="mLFrontRef"/>
+          <div class="m-l-front-2 bg-100 absolute m-m-reflect" ref="mLFront2Ref"/>
+        </div>
+        <div class="m-m-right">
+          <div class="m-r-base bg-100 absolute m-m-reflect" ref="mRBaseRef"/>
+          <div class="m-r-mid bg-100 absolute m-m-reflect" ref="mRMidRef"/>
+          <div class="m-r-front bg-100 absolute m-m-reflect" ref="mRFrontRef"/>
+          <div class="m-r-front-2 bg-100 absolute m-m-reflect" ref="mRFront2Ref"/>
+        </div>
       </div>
     </div>
     <div class="rice-paper-hover w-100 h-100 absolute t0r0"/>
