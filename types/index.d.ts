@@ -8,3 +8,20 @@
  */
 
 type Fn = () => void;
+
+type Blog = {
+  id: number;
+  title: string;
+  cover: string;
+  createTime: string;
+  description: string;
+  type: string;
+}
+
+type BlogType = {
+  id: number;
+  name: string;
+  level: number;
+  parentTypeId: number;
+  color: string;
+}

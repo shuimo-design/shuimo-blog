@@ -33,6 +33,11 @@ const revertSlogan = () => {
 };
 
 
+const router = useRouter();
+const toBlog = ()=>{
+  router.push('/blog');
+};
+
 </script>
 
 <template>
@@ -40,7 +45,7 @@ const revertSlogan = () => {
   <div class="main flex">
     <div class="left">
 
-      <MenuItem slogan="blog" @setSlogan="setSlogan" @revertSlogan="revertSlogan"/>
+      <MenuItem slogan="blog" @setSlogan="setSlogan" @revertSlogan="revertSlogan" @click="toBlog"/>
       <MenuItem slogan="resume" @setSlogan="setSlogan" @revertSlogan="revertSlogan"/>
       <MenuItem slogan="shuimo" @setSlogan="setSlogan" @revertSlogan="revertSlogan"/>
 

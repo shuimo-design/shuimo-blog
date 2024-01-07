@@ -37,3 +37,9 @@ html[dark] {
 .slogan-second{
   margin-top: 16rem;
 }
+
+.blog{
+  .m-li{
+    margin-bottom: 0.6rem;
+  }
+}
