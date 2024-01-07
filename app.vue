@@ -24,7 +24,6 @@
         </g>
       </symbol>
     </svg>
-
   </div>
 </template>
 

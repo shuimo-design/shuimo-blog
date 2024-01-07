@@ -12,6 +12,7 @@ html, body {
 
 :root {
   --color: var(--m-color-text);
+  --year-color: rgba(0, 0, 0, 0.15);
 }
 
 
@@ -22,6 +23,7 @@ html {
 
 html[dark] {
   --color: white;
+  --year-color: rgba(255, 255, 255, 0.1);
 }
 
 
@@ -43,3 +45,4 @@ html[dark] {
     margin-bottom: 0.6rem;
   }
 }
+

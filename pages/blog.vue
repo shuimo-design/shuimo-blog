@@ -42,7 +42,7 @@ const matchImg = (year:number)=>{
 <template>
   <BlogTags/>
   <div class="blogs-wrapper">
-    <div class="blogs" v-if="blogsRef">
+    <div class="blogs m-scroll" v-if="blogsRef">
       <div class="blog-year" v-for="year in blogsRef.years">
         <div class="blog-year-name">{{ yearToJiaZi(year) }}</div>
         <div class="blog-year-bg">
@@ -80,12 +80,12 @@ const matchImg = (year:number)=>{
   margin: 0 6rem 0 2rem;
 }
 
-.blog-year-name{
+.blog-year-name {
   font-size: 12rem;
   position: absolute;
   writing-mode: vertical-lr;
-  color: rgba(255, 255, 255, 0.1);
-  background: linear-gradient(to right, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 80%);
+  color: var(--year-color);
+  background: linear-gradient(to right, var(--year-color) 0%, rgba(255,255,255,0) 80%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   z-index: 0;
