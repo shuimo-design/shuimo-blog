@@ -6,10 +6,10 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import axios from 'axios';
+import { sAxios } from '~/server/tools/sAxios';
 
 export default defineEventHandler(async () => {
-  const data = await axios('http://localhost:8619/type/list');
+  const data = await sAxios('/type/list');
   if (data) {
     return data.data ?? [];
   }

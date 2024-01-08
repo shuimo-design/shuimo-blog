@@ -6,13 +6,13 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import axios from 'axios';
+import { sAxios } from '~/server/tools/sAxios';
 
 export default defineEventHandler(async (event) => {
   const { type } = getQuery(event);
 
 
-  const data = await axios(`http://localhost:8619/article/list${type ? `/${type}` : ''}`);
+  const data = await sAxios(`/article/list${type ? `/${type}` : ''}`);
   const map: Record<string, Blog[]> = {};
   const years: number[] = [];
   if (data) {
