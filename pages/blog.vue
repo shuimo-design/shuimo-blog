@@ -9,32 +9,20 @@
  */
 import useTypesStore from '~/stores/useTypes.store';
 import { provide, storeToRefs } from '#imports';
-import { yearToJiaZi } from '../plugins/lunar/JIaZi';
+import { yearToJiaZi } from '~/plugins/lunar/JIaZi';
+
+
+const typesStore = useTypesStore();
+await callOnce(typesStore.fetchTypes);
+const { colorTypeMapRef, currentActiveTypeNameRef } = storeToRefs(typesStore);
 
 const { data: blogsRef } = await useFetch<{
   years: number[],
   map: Record<number, Blog[]>
-}>('/api/blog');
-
-const typesStore = useTypesStore();
-await callOnce(typesStore.fetchTypes);
-const { colorTypeMapRef } = storeToRefs(typesStore);
+}>('/api/blog', {
+  query: { type: currentActiveTypeNameRef }
+});
 provide('colorTypeMapRef', computed(() => colorTypeMapRef.value));
-
-
-const matchImg = (year:number)=>{
-  const jiaziYear = yearToJiaZi(year);
-  if(jiaziYear.endsWith('寅')){
-    return 'tu';
-  }
-  if(jiaziYear.endsWith('卯')){
-    return 'long';
-  }
-  if(jiaziYear.endsWith('丑')){
-    return 'hu';
-  }
-  return 'long';
-}
 
 
 </script>
@@ -46,7 +34,6 @@ const matchImg = (year:number)=>{
       <div class="blog-year" v-for="year in blogsRef.years">
         <div class="blog-year-name">{{ yearToJiaZi(year) }}</div>
         <div class="blog-year-bg">
-<!--          <img :src="`/img/${matchImg(year)}.png`" alt="">-->
         </div>
         <BlogItem :blog="blog" v-for="blog in blogsRef.map[year]"/>
       </div>
@@ -66,7 +53,7 @@ const matchImg = (year:number)=>{
   align-items: center;
 }
 
-.blogs{
+.blogs {
   display: flex;
   flex-wrap: nowrap;
   position: relative;
@@ -85,13 +72,13 @@ const matchImg = (year:number)=>{
   position: absolute;
   writing-mode: vertical-lr;
   color: var(--year-color);
-  background: linear-gradient(to right, var(--year-color) 0%, rgba(255,255,255,0) 80%);
+  background: linear-gradient(to right, var(--year-color) 0%, rgba(255, 255, 255, 0) 80%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   z-index: 0;
 }
 
-.blog-year-bg{
+.blog-year-bg {
   position: absolute;
   z-index: 0;
   background-size: 100% auto;
@@ -100,9 +87,9 @@ const matchImg = (year:number)=>{
   width: 12rem;
   opacity: 0.1;
 
-  img{
+  img {
     width: 12rem;
-    mask-image: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
 
   }
 

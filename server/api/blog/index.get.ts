@@ -8,24 +8,27 @@
  */
 import axios from 'axios';
 
-export default defineEventHandler(async () => {
-  const data = await axios('http://localhost:8619/article/list');
-  const map:Record<string, Blog[]> = {};
-  const years:number[] = [];
+export default defineEventHandler(async (event) => {
+  const { type } = getQuery(event);
+
+
+  const data = await axios(`http://localhost:8619/article/list${type ? `/${type}` : ''}`);
+  const map: Record<string, Blog[]> = {};
+  const years: number[] = [];
   if (data) {
     (data.data as Blog[]).forEach(blog => {
       const year = new Date(blog.createTime).getFullYear();
       if (!map[year]) {
         map[year] = [blog];
         years.push(year);
-      }else{
+      } else {
         map[year].push(blog);
       }
     });
-    return{ map, years, } ?? {};
+    return { map, years } ?? {};
   }
   return {
     map,
-    years,
+    years
   };
 });

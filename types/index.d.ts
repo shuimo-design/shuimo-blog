@@ -25,3 +25,7 @@ type BlogType = {
   parentTypeId: number;
   color: string;
 }
+
+type BlogTypeVO = BlogType & {
+  isActive: boolean;
+}

@@ -19,7 +19,9 @@ const { typesRef } = storeToRefs(typesStore);
 <template>
 
   <div class="blog-types">
-    <m-tag class="tag" v-for="typeItem in typesRef" :style="{'--m-tag-bg':typeItem.color}">
+    <m-tag class="tag"
+           @click="typesStore.onActiveType(typeItem)"
+           v-for="typeItem in typesRef" :style="typesStore.getStyle(typeItem)">
       <span>{{ typeItem.name }}</span>
     </m-tag>
   </div>
@@ -31,6 +33,7 @@ const { typesRef } = storeToRefs(typesStore);
 
 .blog-types {
   margin-bottom: 1rem;
+  --m-cursor-auto: var(--m-cursor-pointer); /* why?? */
 }
 
 .tag {
