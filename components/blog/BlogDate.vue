@@ -91,7 +91,6 @@ const getColor = (str: string) => {
 .blog-date span {
   display: inline-block;
   margin-bottom: 1rem;
-
 }
 
 .blog-date-month, .blog-date-day {
@@ -100,7 +99,7 @@ const getColor = (str: string) => {
   mask-image: url(/img/seal.png); /* this image no copyright..need update */
   mask-size: 100% 100%;
   background: linear-gradient(to bottom, var(--m-blog-date-from), var(--m-blog-date-to));
-  padding: 0.4rem 0.4rem;
+  padding: 0.8rem;
   border-radius: 0.4rem;
 }
 

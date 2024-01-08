@@ -32,13 +32,14 @@ const { typesRef } = storeToRefs(typesStore);
 <style scoped>
 
 .blog-types {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   --m-cursor-auto: var(--m-cursor-pointer); /* why?? */
 }
 
 .tag {
   margin: 0 0.8rem;
-  --m-tag-h: 2rem;
+  --m-tag-h: 3.2rem;
+  font-size: 1.8rem;
 }
 
 </style>

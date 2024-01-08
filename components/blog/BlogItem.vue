@@ -74,12 +74,12 @@ const openBlogDetails = () => {
 }
 
 .title {
-  font-size: 1.8rem;
+  font-size: 3.2rem;
   margin-right: 0.5rem;
 }
 
 .date {
-  font-size: 1.2rem;
+  font-size: 2rem;
 }
 
 .description {
