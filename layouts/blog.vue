@@ -8,17 +8,14 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import MBg from '~/components/base/background/MBg.vue';
+import Header from '~/components/base/Header.vue';
 </script>
 
 <template>
   <MBg hide-mountain>
-    <div class="m-header">
-      <div>
-        <slot name="header"></slot>
-      </div>
-      <m-dark-mode class="default-layout-dark-mode"/>
-    </div>
-    <slot></slot>
+    <Header>
+      <slot/>
+    </Header>
   </MBg>
 </template>
 

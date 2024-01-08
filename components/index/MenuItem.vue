@@ -7,22 +7,18 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
+import useSloganStore, { slogans } from '~/stores/useSlogan.store';
 
-const props = defineProps<{ slogan: string }>();
-const emits = defineEmits(['setSlogan', 'revertSlogan']);
+const props = defineProps<{ slogan: keyof typeof slogans }>();
 
-const setSlogan = () => {
-  emits('setSlogan', props.slogan);
-};
+const sloganStore = useSloganStore();
+const { setSlogan, revertSlogan } = sloganStore;
 
-const revertSlogan = () => {
-  emits('revertSlogan');
-};
 </script>
 
 <template>
-  <div class="m-cursor-pointer"
-       @mouseenter="setSlogan"
+  <div class="m-menu-item m-cursor-pointer"
+       @mouseenter="setSlogan(slogan)"
        @mouseleave="revertSlogan">
     {{slogan}}
   </div>

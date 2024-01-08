@@ -49,7 +49,7 @@ export default function useSloganTask() {
   const secondSloganMarginTopRef = ref(BASE_MARGIN_TOP);
   let waitChangeMarginTop = BASE_MARGIN_TOP;
   const setSecondSloganMarginTop = (sloganLength: number, secondLength: number) => {
-    const sloganFontSize = 1.8;
+    const sloganFontSize = 3;
     const half = sloganLength / 2;
     let radio = half;
     if (half >= secondLength) {
