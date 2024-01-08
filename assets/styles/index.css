@@ -13,6 +13,7 @@ html, body {
 :root {
   --color: var(--m-color-text);
   --year-color: rgba(0, 0, 0, 0.15);
+  --m-active-text-color: var(--m-color-main);
 }
 
 
@@ -24,8 +25,8 @@ html {
 html[dark] {
   --color: white;
   --year-color: rgba(255, 255, 255, 0.1);
+  --m-active-text-color: var(--m-color-pink);
 }
-
 
 
 .slogan {
@@ -36,12 +37,12 @@ html[dark] {
   text-shadow: 0 0 2px var(--color);
 }
 
-.slogan-second{
+.slogan-second {
   margin-top: 16rem;
 }
 
-.blog{
-  .m-li{
+.blog {
+  .m-li {
     margin-bottom: 0.6rem;
   }
 }

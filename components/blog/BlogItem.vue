@@ -24,7 +24,7 @@ const getColor = (type: string) => {
   <div class="blog">
     <m-li :style="`--m-marker-active-inner-color:${getColor(blog.type)}`" active/>
     <!--    <m-avatar class="cover" :img="blog.cover" size="large"/>-->
-    <div class="info">
+    <div class="info m-cursor-pointer">
       <div class="title">{{ blog.title }}</div>
       <BlogDate class="date" :date="blog.createTime"/>
       <div class="description">
@@ -47,6 +47,8 @@ const getColor = (type: string) => {
   z-index: 1;
 
   &:hover {
+
+    color: var(--m-active-text-color);
 
     .description {
       opacity: 1;
