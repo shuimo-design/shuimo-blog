@@ -68,7 +68,7 @@ provide('colorTypeMapRef', computed(() => colorTypeMapRef.value));
 }
 
 .blog-year-name {
-  font-size: 12rem;
+  font-size: 20rem;
   position: absolute;
   writing-mode: vertical-lr;
   color: var(--year-color);

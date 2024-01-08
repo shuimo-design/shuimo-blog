@@ -13,6 +13,9 @@
 import { onMounted } from 'vue';
 import useImgMove from '~/components/base/background/compositions/useImgMove';
 
+const props = defineProps<{
+  hideMountain?: boolean
+}>();
 
 const {
   baseRef: mLBaseRef,
@@ -56,7 +59,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="m-bg w-100 h-100">
-    <div class="mountains w-100 absolute">
+    <div class="mountains w-100 absolute" v-if="!hideMountain">
       <div class="flex between-end">
         <div class="m-m-left">
           <div class="m-l-base bg-100 absolute m-m-reflect" ref="mLBaseRef"/>

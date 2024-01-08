@@ -18,17 +18,19 @@ const getColor = (type: string) => {
   return colorTypeMapRef.value.get(type) ?? '#861717';
 };
 
+const openBlogDetails = () => {
+  window.open(`/blog/${props.blog.title}`);
+};
+
 </script>
 
 <template>
-  <div class="blog">
+  <div class="blog-item" @click="openBlogDetails">
     <m-li :style="`--m-marker-active-inner-color:${getColor(blog.type)}`" active/>
-    <!--    <m-avatar class="cover" :img="blog.cover" size="large"/>-->
     <div class="info m-cursor-pointer">
       <div class="title">{{ blog.title }}</div>
       <BlogDate class="date" :date="blog.createTime"/>
       <div class="description">
-
         {{ blog.description }}
       </div>
     </div>
@@ -37,7 +39,7 @@ const getColor = (type: string) => {
 
 <style scoped>
 
-.blog {
+.blog-item {
   display: flex;
   flex-direction: column;
   height: var(--blog-h);

@@ -29,3 +29,16 @@ type BlogType = {
 type BlogTypeVO = BlogType & {
   isActive: boolean;
 }
+
+type BlogDetailType = {
+  id: number;
+  title: string;
+  bodyHtml: string;
+  type: number;
+  description: string;
+  cover: string;
+  articleId: string;
+  bookId: string;
+  createTime: string;
+  modifyTime: string;
+}

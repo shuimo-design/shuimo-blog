@@ -14,6 +14,11 @@ html, body {
   --color: var(--m-color-text);
   --year-color: rgba(0, 0, 0, 0.15);
   --m-active-text-color: var(--m-color-main);
+  --m-header-h: 2.4rem;
+  --m-main-h: calc(100vh - var(--m-header-h));
+
+  --m-rice-paper-warm: url(/components/base/background/assets/img/rice-paper-warm.webp);
+  --m-rice-paper: url(/components/base/background/assets/img/rice-paper.webp);
 }
 
 
@@ -28,6 +33,35 @@ html[dark] {
   --m-active-text-color: var(--m-color-pink);
 }
 
+body {
+  font-size: 1.4rem;
+}
+
+
+.m-header {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.4rem 0.8rem;
+  height: var(--m-header-h);
+
+  .m-dark-mode {
+    --dark-mode-h: 24px;
+    --dark-mode-w: 24px;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+.default-layout-dark-mode {
+  animation: rotate 30s linear infinite;
+}
 
 .slogan {
   writing-mode: vertical-rl;
@@ -41,9 +75,15 @@ html[dark] {
   margin-top: 16rem;
 }
 
-.blog {
+.blog-item {
   .m-li {
-    margin-bottom: 0.6rem;
+    margin-bottom: 1.2rem;
+    margin-left: 1rem
   }
 }
 
+.blog-detail-content {
+  img {
+    max-width: calc(100vw - 4rem);
+  }
+}
