@@ -12,7 +12,7 @@ import { sAxios } from '~/server/tools/sAxios';
 export default defineEventHandler(async event => {
   if (event.context.params) {
     const title = event.context.params.title;
-    const data = await sAxios(`/yuque/details/${title}`);
+    const data = await sAxios(`/yuque/details/${encodeURI(title)}`);
     if (data) {
       return data.data ?? {};
     }
