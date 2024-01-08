@@ -21,7 +21,7 @@ html, body {
   --m-rice-paper-warm: url(/components/base/background/assets/img/rice-paper-warm.webp);
   --m-rice-paper: url(/components/base/background/assets/img/rice-paper.webp);
 
-  --footer-bg: rgba(255,255,255,0.3);
+  --footer-bg: rgba(255, 255, 255, 0.3);
 }
 
 
@@ -35,7 +35,7 @@ html[dark] {
   --year-color: rgba(255, 255, 255, 0.1);
   --m-active-text-color: var(--m-color-pink);
 
-  --footer-bg: rgba(0,0,0,0.3);
+  --footer-bg: rgba(0, 0, 0, 0.3);
 }
 
 body {
@@ -45,6 +45,10 @@ body {
 a {
   color: var(--color);
   text-decoration-line: unset;
+
+  &.m-cursor-pointer:hover {
+    color: var(--m-active-text-color);
+  }
 }
 
 .m-header {
@@ -112,8 +116,19 @@ a {
   }
 }
 
-.blog-detail-content {
-  img {
-    max-width: calc(100vw - 4rem);
+
+.blog-detail {
+  [data-lake-card=table] table {
+    background-color: var(--m-color-background);
+  }
+
+  .lake-content .ne-quote {
+    background: var(--m-color-background);
+  }
+
+  .blog-detail-content {
+    img {
+      max-width: calc(100vw - 4rem);
+    }
   }
 }
