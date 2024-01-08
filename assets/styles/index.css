@@ -20,6 +20,8 @@ html, body {
 
   --m-rice-paper-warm: url(/components/base/background/assets/img/rice-paper-warm.webp);
   --m-rice-paper: url(/components/base/background/assets/img/rice-paper.webp);
+
+  --footer-bg: rgba(255,255,255,0.3);
 }
 
 
@@ -32,12 +34,18 @@ html[dark] {
   --color: white;
   --year-color: rgba(255, 255, 255, 0.1);
   --m-active-text-color: var(--m-color-pink);
+
+  --footer-bg: rgba(0,0,0,0.3);
 }
 
 body {
   font-size: 1.4rem;
 }
 
+a {
+  color: var(--color);
+  text-decoration-line: unset;
+}
 
 .m-header {
   display: flex;
@@ -50,7 +58,7 @@ body {
     display: flex;
     margin-left: auto;
 
-    .m-menu-item{
+    .m-menu-item {
       margin-right: 3.2rem;
     }
   }

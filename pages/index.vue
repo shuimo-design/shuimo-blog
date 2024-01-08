@@ -28,6 +28,9 @@ const { sloganRef } = storeToRefs(sloganStore);
       </ClientOnly>
     </div>
   </div>
+  <div class="footer">
+    <a target="_blank" href="https://beian.miit.gov.cn">备案号：浙ICP备15017406号-1</a>
+  </div>
 
 </template>
 
@@ -41,11 +44,17 @@ const { sloganRef } = storeToRefs(sloganStore);
     font-size: 2.4rem;
   }
 
+}
 
-  .right {
-
-  }
-
+.footer{
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  text-align: center;
+  height: 3.2rem;
+  font-size: 1.6rem;
+  line-height: 3.2rem;
+  background: var(--footer-bg);
 }
 
 </style>
