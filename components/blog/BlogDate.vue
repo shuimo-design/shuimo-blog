@@ -96,7 +96,7 @@ const getColor = (str: string) => {
 .blog-date-month, .blog-date-day {
   --m-blog-date-from: var(--m-color-main);
   --m-blog-date-to: var(--m-color-warn);
-  mask-image: url(/img/seal.png); /* this image no copyright..need update */
+  mask-image: url(/img/seal.png);
   mask-size: 100% 100%;
   background: linear-gradient(to bottom, var(--m-blog-date-from), var(--m-blog-date-to));
   padding: 0.8rem;
