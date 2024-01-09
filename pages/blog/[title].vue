@@ -9,7 +9,7 @@
  */
 
 definePageMeta({
-  layout: 'blog'
+  layout: 'without-mountain'
 });
 
 const route = useRoute();

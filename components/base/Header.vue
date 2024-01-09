@@ -8,17 +8,12 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 import MenuItem from '~/components/index/MenuItem.vue';
-import useSloganStore from '~/stores/useSlogan.store';
-
-const sloganStore = useSloganStore();
 
 const router = useRouter();
-const toBlog = () => {router.push('/blog');};
-
-const { setSlogan, revertSlogan } = sloganStore;
 
 const toHome = () => {router.push('/');};
-
+const toBlog = () => {router.push('/blog');};
+const toResume = () => {router.push('/resume');};
 const toShuimo = () => {window.open('https://shuimo.design');};
 
 </script>
@@ -27,7 +22,7 @@ const toShuimo = () => {window.open('https://shuimo.design');};
   <div class="m-header">
     <MenuItem slogan="home" @click="toHome"/>
     <MenuItem slogan="blog" @click="toBlog"/>
-    <MenuItem slogan="resume"/>
+    <MenuItem slogan="resume" @click="toResume"/>
     <div class="m-header-end">
       <MenuItem slogan="shuimo" @click="toShuimo"/>
       <m-dark-mode class="default-layout-dark-mode"/>

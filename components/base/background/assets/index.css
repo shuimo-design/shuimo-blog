@@ -132,7 +132,6 @@
   background-image: url(/components/base/background/assets/img/green/r-front-2.webp);
 }
 
-
 html[dark] {
   .m-bg {
     background-color: black;

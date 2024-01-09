@@ -132,3 +132,34 @@ a {
     }
   }
 }
+
+
+.resume {
+  font-size: 1.8rem;
+  margin: 2rem 4rem 0;
+  overflow-y: auto;
+  height: calc(var(--m-main-h) - 3rem);
+
+  h1 {
+    font-size: 4.8rem;
+  }
+
+  h2 {
+    font-size: 3.6rem;
+  }
+
+  ul {
+    padding-left: 1rem;
+  }
+
+  a {
+    color: var(--m-color-main);
+
+    &:hover {
+      color: var(--m-color-blue);
+    }
+  }
+
+
+
+}

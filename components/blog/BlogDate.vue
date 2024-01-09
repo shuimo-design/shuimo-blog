@@ -99,7 +99,7 @@ const getColor = (str: string) => {
   mask-image: url(/img/seal.png);
   mask-size: 100% 100%;
   background: linear-gradient(to bottom, var(--m-blog-date-from), var(--m-blog-date-to));
-  padding: 0.8rem;
+  padding: 0.8rem 0.4rem;
   border-radius: 0.4rem;
 }
 
