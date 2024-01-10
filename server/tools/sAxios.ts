@@ -8,7 +8,7 @@
  */
 import axios from 'axios';
 
-
+const { public:publicConfig } = useRuntimeConfig();
 export const sAxios = axios.create({
-  baseURL: 'http://localhost:8619'
+  baseURL: publicConfig.NUXT_ENV_SERVER as string ?? '/'
 });

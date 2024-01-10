@@ -2,11 +2,14 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
   modules: [
-    './modules/fontmin',
     '@pinia/nuxt'
   ],
   css: [
     '~/assets/styles/index.css',
-    'shuimo-ui/dist/style.css'
-  ]
+  ],
+  runtimeConfig: {
+    public: {
+      NUXT_ENV_SERVER: process.env.NUXT_ENV_SERVER
+    }
+  }
 });
