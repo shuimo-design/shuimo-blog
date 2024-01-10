@@ -5,10 +5,6 @@ html, body {
   padding: 0;
 }
 
-@font-face {
-  font-family: wljh;
-  src: url(/fonts/wljh.ttf);
-}
 
 :root {
   font-size: 10px;
@@ -27,7 +23,6 @@ html, body {
 
 html {
   color: var(--color);
-  font-family: wljh;
 }
 
 html[dark] {
