@@ -6,28 +6,14 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-
-
-const baseSlogan = `“一个从小就梦想可以混吃等死，做超酷的事的人的网站。”`;
-const blogSlogan = `“只有一个人才能把我和学习分开，她应该不是你。”`;
-const resumeSlogan = `“大道三千，我只修顺心意。”`;
-const shuimoSlogan = `“虽然粗暴，但是很水墨风。”`;
-
-export const slogans = {
-  home: baseSlogan,
-  blog: blogSlogan,
-  resume: resumeSlogan,
-  shuimo: shuimoSlogan
-};
+import { menuConfig } from '~/config/menu.config';
 
 export default defineStore('slogan', () => {
 
-  const sloganRef = ref(`“一个从小就梦想可以混吃等死，做超酷的事的人的网站。”`);
+  const sloganRef = ref(menuConfig['home'].slogan);
 
-
-
-  const setSlogan = (slogan: keyof typeof slogans) => {
-    sloganRef.value = slogans[slogan];
+  const setSlogan = (slogan: keyof typeof menuConfig) => {
+    sloganRef.value = menuConfig[slogan].slogan;
   };
 
 

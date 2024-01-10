@@ -9,22 +9,17 @@
  */
 import MenuItem from '~/components/index/MenuItem.vue';
 
-const router = useRouter();
-
-const toHome = () => {router.push('/');};
-const toBlog = () => {router.push('/blog');};
-const toResume = () => {router.push('/resume');};
 const toShuimo = () => {window.open('https://shuimo.design');};
 
 </script>
 
 <template>
   <div class="m-header">
-    <MenuItem slogan="home" @click="toHome"/>
-    <MenuItem slogan="blog" @click="toBlog"/>
-    <MenuItem slogan="resume" @click="toResume"/>
+    <MenuItem name="home"/>
+    <MenuItem name="blog"/>
+    <MenuItem name="resume"/>
     <div class="m-header-end">
-      <MenuItem slogan="shuimo" @click="toShuimo"/>
+      <MenuItem name="shuimo" @click="toShuimo"/>
       <m-dark-mode class="default-layout-dark-mode"/>
     </div>
   </div>

@@ -7,20 +7,33 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import useSloganStore, { slogans } from '~/stores/useSlogan.store';
+import useSloganStore from '~/stores/useSlogan.store';
+import { menuConfig } from '~/config/menu.config';
 
-const props = defineProps<{ slogan: keyof typeof slogans }>();
+const props = defineProps<{ name: keyof typeof menuConfig }>();
+const emits = defineEmits(['click']);
 
 const sloganStore = useSloganStore();
 const { setSlogan, revertSlogan } = sloganStore;
+
+const router = useRouter();
+const onClick = ()=>{
+  const path = menuConfig[props.name].path;
+  if(path){
+    router.push(path);
+    return;
+  }
+  emits('click');
+}
 
 </script>
 
 <template>
   <div class="m-menu-item m-cursor-pointer"
-       @mouseenter="setSlogan(slogan)"
+       @click="onClick"
+       @mouseenter="setSlogan(name)"
        @mouseleave="revertSlogan">
-    {{slogan}}
+    {{name}}
   </div>
 </template>
 

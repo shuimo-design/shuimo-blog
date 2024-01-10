@@ -29,7 +29,7 @@ const { sloganRef } = storeToRefs(sloganStore);
     </div>
   </div>
   <div class="footer">
-    <a target="_blank" href="https://beian.miit.gov.cn">备案号：浙ICP备15017406号-1</a>
+
   </div>
 
 </template>
