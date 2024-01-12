@@ -35,6 +35,7 @@ html[dark] {
 
 body {
   font-size: 1.4rem;
+  overscroll-behavior: none;
 }
 
 a {
