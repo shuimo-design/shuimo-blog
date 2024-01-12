@@ -48,6 +48,7 @@ const { data: blogDetailsRef } = useFetch<BlogDetailType>(`/api/blog/${title}`);
 
 .blog-detail-content {
   font-family: sans-serif;
+  margin-bottom: 2rem;
 }
 
 </style>
