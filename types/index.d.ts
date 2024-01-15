@@ -43,3 +43,9 @@ type BlogDetailType = {
   createTime: string;
   modifyTime: string;
 }
+
+type Friend = {
+  name: string;
+  link: string;
+  avatar: string;
+}

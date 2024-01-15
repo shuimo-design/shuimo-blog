@@ -18,6 +18,7 @@ const toShuimo = () => {window.open('https://shuimo.design');};
     <MenuItem name="home"/>
     <MenuItem name="blog"/>
     <MenuItem name="resume"/>
+    <MenuItem name="friends"/>
     <div class="m-header-end">
       <MenuItem name="shuimo" @click="toShuimo"/>
       <m-dark-mode class="default-layout-dark-mode"/>
