@@ -9,7 +9,7 @@
  */
 import useTypesStore from '~/stores/useTypes.store';
 import { provide, storeToRefs } from '#imports';
-import { yearToJiaZi } from '~/plugins/lunar/JIaZi';
+import { getYearJiaZi } from '@shuimo-design/lunar';
 
 
 const typesStore = useTypesStore();
@@ -33,7 +33,7 @@ provide('colorTypeMapRef', computed(() => colorTypeMapRef.value));
     <div class="blogs-wrapper">
       <div class="blogs m-scroll" v-if="blogsRef">
         <div class="blog-year" v-for="year in blogsRef.years">
-          <div class="blog-year-name">{{ yearToJiaZi(year) }}</div>
+          <div class="blog-year-name">{{ getYearJiaZi(year) }}</div>
           <div class="blog-year-bg">
           </div>
           <BlogItem :blog="blog" v-for="blog in blogsRef.map[year]"/>

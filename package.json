@@ -12,6 +12,7 @@
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@pinia/nuxt": "^0.5.1",
+    "@shuimo-design/lunar": "^0.0.4",
     "axios": "^1.6.3",
     "nuxt": "^3.9.0",
     "pinia": "^2.1.7",

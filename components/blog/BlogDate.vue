@@ -7,7 +7,7 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { lunar } from '~/plugins/lunar/lunar';
+import { lunar } from '@shuimo-design/lunar';
 
 const props = defineProps<{
   date: string
@@ -15,9 +15,7 @@ const props = defineProps<{
 
 
 const lunarDate = computed(() => {
-  const [yStr, mStr, last] = props.date.split('-');
-  const [dStr, _] = last.split('T');
-  return lunar({ y: Number(yStr), m: Number(mStr), d: Number(dStr) });
+  return lunar(props.date);
 });
 
 // 亥子属水，寅卯属木，巳午属火，申酉属金，辰戌丑未属土。
@@ -77,6 +75,10 @@ const getColor = (str: string) => {
     </span>
     <span>
       {{ lunarDate.term ?? '' }}
+    </span>
+    <span>
+      {{ lunarDate.hour ?? '' }}
+      {{ lunarDate.minute ?? '' }}
     </span>
   </p>
 
