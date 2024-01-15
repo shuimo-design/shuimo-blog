@@ -28,20 +28,21 @@ provide('colorTypeMapRef', computed(() => colorTypeMapRef.value));
 </script>
 
 <template>
-  <BlogTags/>
-  <div class="blogs-wrapper">
-    <div class="blogs m-scroll" v-if="blogsRef">
-      <div class="blog-year" v-for="year in blogsRef.years">
-        <div class="blog-year-name">{{ yearToJiaZi(year) }}</div>
-        <div class="blog-year-bg">
+  <div>
+    <BlogTags/>
+    <div class="blogs-wrapper">
+      <div class="blogs m-scroll" v-if="blogsRef">
+        <div class="blog-year" v-for="year in blogsRef.years">
+          <div class="blog-year-name">{{ yearToJiaZi(year) }}</div>
+          <div class="blog-year-bg">
+          </div>
+          <BlogItem :blog="blog" v-for="blog in blogsRef.map[year]"/>
         </div>
-        <BlogItem :blog="blog" v-for="blog in blogsRef.map[year]"/>
+
+
       </div>
-
-
     </div>
   </div>
-
 </template>
 
 <style scoped>

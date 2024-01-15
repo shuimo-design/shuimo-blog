@@ -156,6 +156,16 @@ a {
     }
   }
 
+}
 
+.m-page-enter-active, .m-page-leave-active {
+  transition: opacity 0.3s ease-in-out;
+}
 
+.m-page-enter-from, .m-page-leave-to {
+  opacity: 0;
+}
+
+.m-page-enter-to, .m-page-leave-from {
+  opacity: 1;
 }

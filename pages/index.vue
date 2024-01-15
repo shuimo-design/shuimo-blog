@@ -16,22 +16,22 @@ const { sloganRef } = storeToRefs(sloganStore);
 </script>
 
 <template>
+  <div>
+    <div class="main flex">
+      <div class="left">
 
-  <div class="main flex">
-    <div class="left">
 
+      </div>
+      <div class="right">
+        <ClientOnly>
+          <Slogan :slogan="sloganRef"/>
+        </ClientOnly>
+      </div>
+    </div>
+    <div class="footer">
 
     </div>
-    <div class="right">
-      <ClientOnly>
-        <Slogan :slogan="sloganRef"/>
-      </ClientOnly>
-    </div>
   </div>
-  <div class="footer">
-
-  </div>
-
 </template>
 
 <style scoped>

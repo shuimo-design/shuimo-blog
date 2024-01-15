@@ -58,7 +58,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="m-bg w-100 h-100">
+  <div class="m-bg-wrapper w-100 h-100 absolute t0r0">
     <div class="mountains w-100 absolute" v-if="!hideMountain">
       <div class="flex between-end">
         <div class="m-m-left">
@@ -79,12 +79,9 @@ onBeforeUnmount(() => {
     <div class="m-bg-layout absolute t0r0 w-100 h-100">
       <slot></slot>
     </div>
-
-
   </div>
 </template>
 
 <style scoped>
-
 
 </style>
