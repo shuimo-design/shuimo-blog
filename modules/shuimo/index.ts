@@ -14,7 +14,7 @@ export default defineNuxtModule({
     nuxtApp.hook('nitro:config', async nitroConfig => {
       nitroConfig.publicAssets ||= [];
       nitroConfig.publicAssets.push({
-        dir: resolve('../../packages/core/public'),
+        dir: resolve('../../node_modules/shuimo-ui/public'),
         baseURL: 'm-shuimo',
         maxAge: 60 * 60 * 24 * 30
       });
