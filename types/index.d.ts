@@ -12,8 +12,9 @@ type Fn = () => void;
 type Blog = {
   id: number;
   title: string;
-  cover: string;
+  cover: string | null;
   createTime: string;
+  modifyTime: string;
   description: string;
   type: string;
 }
