@@ -8,6 +8,8 @@
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
 
+import { headConfig } from '~/config/head.config';
+
 definePageMeta({
   layout: 'without-mountain'
 });
@@ -18,6 +20,16 @@ const title = route.params.title;
 
 const { data: blogDetailsRef } = useFetch<BlogDetailType>(`/api/blog/${title}`);
 
+useHead({
+  title: `${headConfig.title}${blogDetailsRef.value?.title ? `-${blogDetailsRef.value.title}` : ''}`,
+  meta: [
+    { name: 'description', content: blogDetailsRef.value?.description ?? '' },
+    {
+      name: 'keywords',
+      content: `${blogDetailsRef.value?.title ? `${blogDetailsRef.value?.title},` : ''}${headConfig.keywords}`
+    }
+  ]
+});
 
 </script>
 

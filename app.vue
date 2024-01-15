@@ -1,17 +1,24 @@
 <template>
-  <NuxtLayout>
-    <NuxtPage/>
-  </NuxtLayout>
+  <Title>{{headConfig.title}}</Title>
+  <div class="m-bg w-100 h-100">
+    <NuxtLayout>
+      <BaseHeader/>
+      <NuxtPage/>
+    </NuxtLayout>
+  </div>
 </template>
 
-<script setup type="ts">
+<script setup lang="ts">
+import { headConfig } from '~/config/head.config';
+
 useHead({
   meta: [
     { name: 'viewport', content: 'width=device-width,initial-scale=1.0' },
-    { name: 'author', content: 'higuaifan,你好怪凡,higuaifan@higuaifan.com' },
-    { name: 'description', content: '阿怪的个人博客' },
-    { name: 'keywords', content: '你好怪凡,blog,shuimo-ui,shuimo,shuimo style blog,水墨风,水墨组件' },
-    { name: 'referrer', content: 'no-referrer' },
+    { name: 'author', content: headConfig.author },
+    { name: 'description', content: headConfig.description },
+    { name: 'keywords', content: headConfig.keywords },
+    { name: 'referrer', content: 'no-referrer' }
   ]
-})
+});
 </script>
+

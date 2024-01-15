@@ -58,6 +58,7 @@ provide('colorTypeMapRef', computed(() => colorTypeMapRef.value));
   flex-wrap: nowrap;
   position: relative;
   overflow-x: auto;
+  width: 100vw;
 }
 
 .blog-year {
