@@ -36,6 +36,7 @@ const friends = computed(() => {
   margin-top: 4rem;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 </style>
