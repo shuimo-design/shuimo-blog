@@ -6,12 +6,9 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import { sAxios } from '~/server/tools/sAxios';
+import { types } from '~/server/mocks/_mock_data_';
 
 export default defineEventHandler(async () => {
-  const data = await sAxios('/type/list');
-  if (data) {
-    return data.data ?? [];
-  }
-  return [];
+
+  return types;
 });
