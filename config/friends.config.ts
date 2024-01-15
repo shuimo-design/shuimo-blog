@@ -19,7 +19,6 @@ export const friendsConfig: Friend[] = [
     name: 'youuss',
     link: 'https://hiyouus.com',
     avatar: 'https://avatars.githubusercontent.com/u/34266177?v=4',
-
   },
   {
     name: 'qunbotop',
