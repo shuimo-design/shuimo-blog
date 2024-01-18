@@ -77,7 +77,7 @@ const getColor = (str: string) => {
       {{ lunarDate.term ?? '' }}
     </span>
     <span>
-      {{ lunarDate.hour ?? '' }}
+      {{ lunarDate.hour ?? '' }}时
       {{ lunarDate.minute ?? '' }}
     </span>
   </p>
