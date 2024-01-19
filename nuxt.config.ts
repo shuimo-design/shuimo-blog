@@ -13,6 +13,8 @@ export default defineNuxtConfig({
     }
   },
   app: {
+    baseURL: '/shuimo-blog/',
+    buildAssetsDir: '/static/',
     layoutTransition: {
       name: 'm-layout', mode: 'default'
     },
