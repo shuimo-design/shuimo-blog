@@ -19,7 +19,11 @@ const getColor = (type: string) => {
 };
 
 const openBlogDetails = () => {
-  window.open(`/blog/${props.blog.type}/${encodeURI(props.blog.title)}`);
+  if (props.blog.type) {
+    window.open(`/blog/${props.blog.type}/${encodeURI(props.blog.title)}`);
+    return;
+  }
+  window.open(`/blog/${encodeURI(props.blog.title)}`);
 };
 
 </script>
