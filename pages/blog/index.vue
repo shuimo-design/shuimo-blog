@@ -22,9 +22,8 @@ const { data: blogsRef } = await useFetch<{
 }>('/api/blog', {
   query: { type: currentActiveTypeNameRef }
 });
+
 provide('colorTypeMapRef', computed(() => colorTypeMapRef.value));
-
-
 </script>
 
 <template>
@@ -38,8 +37,6 @@ provide('colorTypeMapRef', computed(() => colorTypeMapRef.value));
           </div>
           <BlogItem :blog="blog" v-for="blog in blogsRef.map[year]"/>
         </div>
-
-
       </div>
     </div>
   </div>

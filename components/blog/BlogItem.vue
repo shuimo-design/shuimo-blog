@@ -19,6 +19,10 @@ const getColor = (type: string) => {
 };
 
 const openBlogDetails = () => {
+  if (props.blog.type) {
+    window.open(`/blog/${props.blog.type}/${encodeURI(props.blog.title)}`);
+    return;
+  }
   window.open(`/blog/${encodeURI(props.blog.title)}`);
 };
 
@@ -26,10 +30,10 @@ const openBlogDetails = () => {
 
 <template>
   <div class="blog-item" @click="openBlogDetails">
-    <m-li :style="`--m-marker-active-inner-color:${getColor(blog.type)}`" active/>
+    <m-li :style="`--m-marker-active-inner-color:${getColor(blog.type)}`" active />
     <div class="info m-cursor-pointer">
       <div class="title">{{ blog.title }}</div>
-      <BlogDate class="date" :date="blog.createTime"/>
+      <BlogDate class="date" :date="blog.createTime" />
       <div class="description">
         {{ blog.description }}
       </div>
@@ -38,7 +42,6 @@ const openBlogDetails = () => {
 </template>
 
 <style scoped>
-
 .blog-item {
   display: flex;
   flex-direction: column;
@@ -99,5 +102,4 @@ const openBlogDetails = () => {
   transition: opacity 0.6s, max-width 1s;
   letter-spacing: 0.1rem;
 }
-
 </style>
