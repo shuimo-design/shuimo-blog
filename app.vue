@@ -1,6 +1,6 @@
 <template>
   <Title>{{headConfig.title}}</Title>
-  <div class="m-bg w-100 h-100">
+  <div class="shuimo-blog">
     <NuxtLayout>
       <BaseHeader/>
       <NuxtPage/>
