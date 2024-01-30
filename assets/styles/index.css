@@ -74,6 +74,10 @@ a {
     text-shadow: 0 0 2px var(--color);
   }
 
+  .m-menu-item-active {
+    color: var(--m-active-text-color);
+  }
+
   .m-cursor-pointer:hover {
     color: var(--m-active-text-color);
     text-shadow: 0 0 2px var(--m-active-text-color);

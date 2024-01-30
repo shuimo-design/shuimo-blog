@@ -9,6 +9,7 @@
  */
 import useSloganStore from '~/stores/useSlogan.store';
 import { menuConfig } from '~/config/menu.config';
+import { useRoute } from 'vue-router';
 
 const props = defineProps<{ name: keyof typeof menuConfig }>();
 const emits = defineEmits(['click']);
@@ -17,6 +18,8 @@ const sloganStore = useSloganStore();
 const { setSlogan, revertSlogan } = sloganStore;
 
 const router = useRouter();
+const route= useRoute();
+
 const onClick = ()=>{
   const path = menuConfig[props.name].path;
   if(path){
@@ -26,10 +29,20 @@ const onClick = ()=>{
   emits('click');
 }
 
+const echoMenuItem = () => {
+  if (route.name === props.name) {
+    return 'm-menu-item-active';
+  }
+  if(route.name === 'index' && props.name === 'home'){
+    return 'm-menu-item-active';
+  }
+  return '';
+}
+
 </script>
 
 <template>
-  <div class="m-menu-item m-cursor-pointer"
+  <div :class="['m-menu-item', 'm-cursor-pointer', echoMenuItem()]"
        @click="onClick"
        @mouseenter="setSlogan(name)"
        @mouseleave="revertSlogan">
