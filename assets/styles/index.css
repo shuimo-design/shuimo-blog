@@ -83,6 +83,15 @@ a {
   .m-menu-item-active {
     color: var(--m-color-main);
   }
+
+  .m-menu-item__deep-active {
+    color: var(--m-color-main);
+  }
+
+  .m-menu-item__deep-hover:hover {
+    color: var(--m-color-xiaoyaoyou);
+    text-shadow: 0 0 2px var(--m-color-xiaoyaoyou);
+  }
 }
 
 @keyframes rotate {

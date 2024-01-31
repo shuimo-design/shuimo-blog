@@ -29,7 +29,7 @@ const onClick = ()=>{
   emits('click');
 }
 
-const echoMenuItem = () => {
+const activeMenuItem = () => {
   const routeName = route.fullPath;
 
   if (routeName.replace(/\//g, '') === props.name ||
@@ -37,7 +37,7 @@ const echoMenuItem = () => {
     return ['m-menu-item-active'];
   }
   if (routeName.split("/")[1] === props.name) {
-    return ['m-menu-item-active', 'm-menu-item-hover'];
+    return ['m-menu-item__deep-active', 'm-menu-item__deep-hover'];
   }
   
   return ['m-menu-item-hover'];
@@ -45,7 +45,7 @@ const echoMenuItem = () => {
 </script>
 
 <template>
-  <div :class="['m-menu-item', 'm-cursor-pointer', ...echoMenuItem()]"
+  <div :class="['m-menu-item', 'm-cursor-pointer', ...activeMenuItem()]"
        @click="onClick"
        @mouseenter="setSlogan(name)"
        @mouseleave="revertSlogan">
