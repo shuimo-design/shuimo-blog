@@ -1,5 +1,5 @@
 
-html, body {
+html,body {
   margin: 0;
   padding: 0;
 }
@@ -73,12 +73,31 @@ a {
   .m-menu-item {
     margin-right: 2rem;
     font-size: 2.4rem;
-    text-shadow: 0 0 2px var(--color);
+    text-shadow: 0 0 2px var(--m-menu-item-color);
+    color: var(--m-menu-item-color);
+    --m-menu-item-color: var(--color);
   }
 
   .m-cursor-pointer:hover {
-    color: var(--m-active-text-color);
-    text-shadow: 0 0 2px var(--m-active-text-color);
+    text-shadow: 0 0 2px var(--m-cursor-pointer-hover);
+    color: var(--m-cursor-pointer-hover);
+    --m-cursor-pointer-hover: var(--m-color-yuyangran);
+  }
+
+  .m-menu-item-active {
+    --m-menu-item-color: var(--m-active-text-color);
+
+    &:hover {
+      --m-cursor-pointer-hover: var(--m-active-text-color);
+    }
+  }
+
+  .m-menu-item-match {
+    --m-menu-item-color: var(--m-color-main);
+
+    &:hover {
+      --m-cursor-pointer-hover: var(--m-color-qingluan);
+    }
   }
 }
 
