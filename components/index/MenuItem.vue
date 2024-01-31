@@ -30,10 +30,11 @@ const onClick = ()=>{
 }
 
 const echoMenuItem = () => {
-  if (route.name === props.name) {
+  const routeName = route.fullPath.split('/')?.[1];
+  if (routeName === props.name) {
     return 'm-menu-item-active';
   }
-  if(route.name === 'index' && props.name === 'home'){
+  if (route.name === 'index' && props.name === 'home') {
     return 'm-menu-item-active';
   }
   return '';
