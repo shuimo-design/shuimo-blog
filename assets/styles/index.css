@@ -1,6 +1,7 @@
 @import "/components/base/background/assets/index.css";
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
@@ -74,13 +75,13 @@ a {
     text-shadow: 0 0 2px var(--color);
   }
 
-  .m-menu-item-active {
-    color: var(--m-active-text-color);
+  .m-menu-item-hover:hover {
+    color: var(--m-color-yuyangran);
+    text-shadow: 0 0 2px var(--m-color-yuyangran);
   }
 
-  .m-cursor-pointer:hover {
-    color: var(--m-active-text-color);
-    text-shadow: 0 0 2px var(--m-active-text-color);
+  .m-menu-item-active {
+    color: var(--m-color-main);
   }
 }
 
@@ -88,6 +89,7 @@ a {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg)
   }
@@ -162,14 +164,17 @@ a {
 
 }
 
-.m-page-enter-active, .m-page-leave-active {
+.m-page-enter-active,
+.m-page-leave-active {
   transition: opacity 0.3s ease-in-out;
 }
 
-.m-page-enter-from, .m-page-leave-to {
+.m-page-enter-from,
+.m-page-leave-to {
   opacity: 0;
 }
 
-.m-page-enter-to, .m-page-leave-from {
+.m-page-enter-to,
+.m-page-leave-from {
   opacity: 1;
 }

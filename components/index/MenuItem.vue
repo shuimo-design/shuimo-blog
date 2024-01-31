@@ -30,20 +30,22 @@ const onClick = ()=>{
 }
 
 const echoMenuItem = () => {
-  const routeName = route.fullPath.split('/')?.[1];
-  if (routeName === props.name) {
-    return 'm-menu-item-active';
-  }
-  if (route.name === 'index' && props.name === 'home') {
-    return 'm-menu-item-active';
-  }
-  return '';
-}
+  const routeName = route.fullPath;
 
+  if (routeName.replace(/\//g, '') === props.name ||
+    (route.name === 'index' && props.name === 'home')) {
+    return ['m-menu-item-active'];
+  }
+  if (routeName.split("/")[1] === props.name) {
+    return ['m-menu-item-active', 'm-menu-item-hover'];
+  }
+  
+  return ['m-menu-item-hover'];
+};
 </script>
 
 <template>
-  <div :class="['m-menu-item', 'm-cursor-pointer', echoMenuItem()]"
+  <div :class="['m-menu-item', 'm-cursor-pointer', ...echoMenuItem()]"
        @click="onClick"
        @mouseenter="setSlogan(name)"
        @mouseleave="revertSlogan">
