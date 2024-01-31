@@ -7,13 +7,12 @@
  *
  * 江湖的业务千篇一律，复杂的代码好几百行。
  */
-import MBg from '~/components/base/background/MBg.vue';
 </script>
 
 <template>
-  <MBg hide-mountain>
+  <m-rice-paper hide-mountain>
     <slot/>
-  </MBg>
+  </m-rice-paper>
 </template>
 
 <style scoped>

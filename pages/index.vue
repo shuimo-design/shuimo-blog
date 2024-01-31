@@ -17,9 +17,8 @@ const { sloganRef } = storeToRefs(sloganStore);
 
 <template>
   <div>
-    <div class="main flex">
+    <div class="main">
       <div class="left">
-
 
       </div>
       <div class="right">
@@ -37,8 +36,10 @@ const { sloganRef } = storeToRefs(sloganStore);
 <style scoped>
 
 .main {
+  display: flex;
   justify-content: space-between;
   padding: 0 5rem;
+  height: calc(100vh - var(--m-header-h));
 
   .left {
     font-size: 2.4rem;
