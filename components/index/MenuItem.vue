@@ -35,12 +35,12 @@ const activeMenuItem =computed(()=>{
   const isMatch = routeName.replace(/\//g, '') === propName || (route.name === 'index' && propName === 'home');
   const isSubMatch = routeName.split("/")[1] === propName;
 
-  return isMatch ? ['m-menu-item-active'] : isSubMatch ? ['m-menu-item-match'] : [];
+  return isMatch ? 'm-menu-item-active' : isSubMatch ? 'm-menu-item-match' : null;
 })
 </script>
 
 <template>
-  <div :class="['m-menu-item', 'm-cursor-pointer', ...activeMenuItem]"
+  <div :class="['m-menu-item', 'm-cursor-pointer',activeMenuItem]"
        @click="onClick"
        @mouseenter="setSlogan(name)"
        @mouseleave="revertSlogan">
