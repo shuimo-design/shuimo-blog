@@ -92,10 +92,6 @@ a {
 
   .m-menu-item-match {
     --m-menu-item-color: var(--m-color-daran);
-
-    &:hover {
-      --m-menu-item-color: var(--m-color-qingluan);
-    }
   }
 }
 
