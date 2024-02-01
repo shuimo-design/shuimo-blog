@@ -40,7 +40,7 @@ const activeMenuItem =computed(()=>{
 </script>
 
 <template>
-  <div :class="['m-menu-item', 'm-cursor-pointer',activeMenuItem]"
+  <div :class="['m-menu-item', 'm-cursor-pointer', activeMenuItem]"
        @click="onClick"
        @mouseenter="setSlogan(name)"
        @mouseleave="revertSlogan">
