@@ -55,6 +55,7 @@ a {
   align-items: center;
   margin: 0.4rem 1.8rem;
   height: var(--m-header-h);
+  --m-menu-item-color: var(--color);
 
   .m-header-end {
     display: flex;
@@ -73,12 +74,24 @@ a {
   .m-menu-item {
     margin-right: 2rem;
     font-size: 2.4rem;
-    text-shadow: 0 0 2px var(--color);
+    text-shadow: 0 0 2px var(--m-menu-item-color);
+    color: var(--m-menu-item-color);
+
+    &:hover {
+      --m-menu-item-color: var(--m-color-yuyangran);
+    }
   }
 
-  .m-cursor-pointer:hover {
-    color: var(--m-active-text-color);
-    text-shadow: 0 0 2px var(--m-active-text-color);
+  .m-menu-item-active {
+    --m-menu-item-color: var(--m-active-text-color);
+
+    &:hover {
+      --m-menu-item-color: var(--m-active-text-color);
+    }
+  }
+
+  .m-menu-item-match {
+    --m-menu-item-color: var(--m-color-chunzhi);
   }
 }
 
