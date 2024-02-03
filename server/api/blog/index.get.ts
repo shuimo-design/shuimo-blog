@@ -34,7 +34,7 @@ export default defineEventHandler(async (event) => {
         map[year].push(blog);
       }
     });
-    return { map, years } ?? {};
+    return { map, years };
   }
   return {
     map,

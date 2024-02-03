@@ -33,7 +33,6 @@ export default function useSloganTask() {
   const {
     taskInfo,
     controls,
-    speedRef,
     stop
   } = useAnimationFrame({
     pushSpeed: PUSH_SPEED,

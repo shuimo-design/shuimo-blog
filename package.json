@@ -7,9 +7,11 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "jhlint"
   },
   "devDependencies": {
+    "@janghood/lint": "^0.0.2",
     "@nuxt/devtools": "latest",
     "@pinia/nuxt": "^0.5.1",
     "@shuimo-design/lunar": "^0.0.5",
