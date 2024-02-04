@@ -36,17 +36,17 @@ useHead({
 <template>
   <div class="blog-detail m-scroll" v-if="blogDetailsRef">
     <div class="blog-detail-title">{{ blogDetailsRef.title }}</div>
-    <m-divider/>
-
-    <div class="blog-detail-content" v-html="blogDetailsRef.bodyHtml">
-
+    <m-divider />
+    <div class="blog-detail-content">
+      <div class="blog-detail-description" v-if="blogDetailsRef.description">
+        {{ blogDetailsRef.description }}
+      </div>
+      <div class="blog-detail-content-text" v-html="blogDetailsRef.bodyHtml" />
     </div>
-
   </div>
 </template>
 
 <style scoped>
-
 .blog-detail {
   height: var(--m-main-h);
   overflow-y: auto;
@@ -56,11 +56,36 @@ useHead({
 .blog-detail-title {
   font-size: 4rem;
   margin: 1rem 0;
+  text-align: center;
 }
 
 .blog-detail-content {
   font-family: sans-serif;
   margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
+.blog-detail-description {
+  margin: 10px 0;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px rgba(255, 255, 255, 0.5);
+  width: 100%;
+  max-width: 1024px;
+  text-align: center;
+}
+
+.tag {
+  margin: 0 0.8rem;
+  --m-tag-h: 3.2rem;
+  font-size: 1.8rem;
+}
+
+.blog-detail-content-text {
+  width: 100%;
+  max-width: 1024px;
+}
 </style>
