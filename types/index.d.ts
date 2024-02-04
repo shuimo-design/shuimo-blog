@@ -35,7 +35,7 @@ type BlogDetailType = {
   id: number;
   title: string;
   bodyHtml: string;
-  type: number;
+  type: number | string;
   description: string;
   cover: string;
   articleId: string;
