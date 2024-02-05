@@ -10,7 +10,7 @@ import { blogs } from '~/server/mocks/_mock_data_';
 import { article1 } from '~/server/mocks/blogs/1';
 import { article2 } from '~/server/mocks/blogs/2';
 
-const blogHTML: Record<number, string> = {
+const contents: Record<number, string> = {
   1: article1,
   2: article2
 };
@@ -20,7 +20,7 @@ export default defineEventHandler(async event => {
     const title = event.context.params.title;
     const blog = blogs.data.find(e => e.title === title);
     if (blog) {
-      blog.bodyHtml = blogHTML[blog.id] ?? '暂无数据';
+      blog.content = contents[blog.id] ?? '暂无数据';
       return blog;
     }
 

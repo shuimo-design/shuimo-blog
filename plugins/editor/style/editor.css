@@ -1,0 +1,68 @@
+@import "shiki.css";
+@import "../theme/style/shuimo.css";
+
+
+:root {
+  --m-editor-code-bg: var(--m-color-gaoyu);
+  --m-editor-code-color: var(--m-color-jingyuan);
+}
+
+html[dark] {
+  --m-editor-code-bg: var(--m-color-shui-yang);
+  --m-editor-code-color: var(--m-color-jin-yin);
+}
+
+
+.m-md-editor .milkdown {
+  text-align: left;
+  background: unset;
+  box-shadow: unset;
+  overflow: auto;
+  line-height: 1.74;
+
+
+  pre {
+    background-color: var(--blog-pre-bg);
+    max-width: 100%;
+
+    backdrop-filter: blur(3px);
+    font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+    font-size: 1em;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+    padding: 1em;
+    margin: 0.5em 0;
+    overflow: auto;
+    border-radius: 2px;
+  }
+
+  a {
+    display: inline-block;
+    padding: 0 0.4rem;
+    text-decoration: underline;
+    color: var(--m-skj-main);
+  }
+
+  p {
+    code {
+      background-color: var(--m-editor-code-bg);
+      color: var(--m-editor-code-color);
+      display: inline-block;
+      padding: 0 0.4rem;
+      margin: 0 0.4rem;
+      border-radius: 4px;
+      line-height: 1.5;
+    }
+  }
+}
+

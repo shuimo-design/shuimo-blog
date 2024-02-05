@@ -8,8 +8,9 @@
  */
 
 export const article2 = `
-<h1>Star Us!</h1>
-<a href="https://github.com/shuimo-design">shuimo-design</a>
-<br/>
-<a href="https://github.com/shuimo-design/shuimo-blog">shuimo-blog</a>
+# Star Us!
+
+- [shuimo-design](https://github.com/shuimo-design)
+
+- [shuimo-blog](https://github.com/shuimo-design/shuimo-blog)
   `;

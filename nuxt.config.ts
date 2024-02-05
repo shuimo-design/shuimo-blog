@@ -5,7 +5,8 @@ export default defineNuxtConfig({
     '@pinia/nuxt'
   ],
   css: [
-    '~/assets/styles/index.css'
+    '~/assets/styles/index.css',
+    '~/plugins/editor/style/editor.css'
   ],
   runtimeConfig: {
     public: {

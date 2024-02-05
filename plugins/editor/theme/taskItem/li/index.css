@@ -1,0 +1,14 @@
+.m-d-li.m-d-li-active .m-d-icon{
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  background-image: url("./assets/active_icon.webp");
+  background-size: 100% 100%;
+}
+
+.m-d-li .m-d-icon{
+  width: 11px;
+  height: 11px;
+  margin: 6.5px;
+  background-image: url("./assets/base_icon.webp");
+}

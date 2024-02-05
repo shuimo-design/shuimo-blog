@@ -16,6 +16,7 @@ type Blog = {
   createTime: string;
   modifyTime: string;
   description: string;
+  content: string;
   type: string;
 }
 
@@ -34,7 +35,7 @@ type BlogTypeVO = BlogType & {
 type BlogDetailType = {
   id: number;
   title: string;
-  bodyHtml: string;
+  content: string;
   type: number | string;
   description: string;
   cover: string;

@@ -1,0 +1,38 @@
+@import "../taskItem/li";
+
+.m-list-item {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.5rem;
+
+  & .m-list-item-span {
+    /*flex h- items-center*/
+    display: flex;
+    height: 100%;
+    align-items: center;
+  }
+
+  & .span-bullet {
+    height: 0.5rem;
+    width: 0.5rem;
+    border-radius: 50%;
+    background-color: var(--m-color-main);
+  }
+
+  /*@media (prefers-color-scheme: dark) {*/
+  /*  .span-bullet {*/
+  /*    background-color: #81A1C1;*/
+  /*  }*/
+  /*}*/
+
+}
+
+li p {
+  margin: 0 !important;
+  line-height: 1.5rem !important;
+}
+
+ul {
+  padding-inline-start: unset;
+}

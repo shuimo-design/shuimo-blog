@@ -9,6 +9,7 @@
  */
 
 import { headConfig } from '~/config/head.config';
+import Editor from '~/components/md/Editor';
 
 definePageMeta({
   layout: 'without-mountain'
@@ -38,9 +39,9 @@ useHead({
     <div class="blog-detail-title">{{ blogDetailsRef.title }}</div>
     <m-divider/>
 
-    <div class="blog-detail-content" v-html="blogDetailsRef.bodyHtml">
-
-    </div>
+    <ClientOnly>
+      <Editor readonly v-model="blogDetailsRef.content"/>
+    </ClientOnly>
 
   </div>
 </template>
